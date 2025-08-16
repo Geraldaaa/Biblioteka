@@ -1,22 +1,21 @@
 package com.chat.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 
-public class MenaxhimiHuazimeve{
+public class MenaxhimiHuazimeve {
 
 
-    LocalDate dataHuazimit = LocalDate.now();
+    //  LocalDate dataHuazimit = LocalDate.now();
 
 
-    private Map<String, List<Libri>> huazimet = new HashMap<>();
+    //private Map<String, List<Libri>> huazimet = new HashMap<>();
 
-
+/*
     public void regjistroHuazim(PunonjesiBibliotekes punonjesi, Libri libri) {
         String id = punonjesi.getId();
 
@@ -29,9 +28,9 @@ public class MenaxhimiHuazimeve{
         huazimet.get(id).add(libri);
 
     }
+*/
 
-
-
+/*
 //shtimi i te gjithe librave te huazuar ne nje liste. Kjo metode kthen listen e librave te huazuar.
     public ArrayList<Libri> merrTeGjitheLibratEHuazuar() {
 
@@ -51,9 +50,11 @@ public class MenaxhimiHuazimeve{
         return listaMeLibraHuazuar;
     }
 
+ */
 
 
 
+/*
     public void shfaqHuazimetPerPunonjes() {
 
         for (Map.Entry<String, List<Libri>> entryHuazim : huazimet.entrySet()) {
@@ -73,9 +74,9 @@ public class MenaxhimiHuazimeve{
         }
     }
 
+*/
 
-
-
+/*
     public void filtrimHuazimeshDitore(LocalDate data) {
 
         boolean kontroll = false;
@@ -100,6 +101,6 @@ public class MenaxhimiHuazimeve{
     }
  }
 
+*/
 
-
-
+}

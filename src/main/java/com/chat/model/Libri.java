@@ -88,7 +88,7 @@ public abstract class Libri {
         this.dataHuazimit = data;
         this.kontrollHuazimi = true;
     }
-
+/*
     public Boolean eshteHuazuar() {
         return kontrollHuazimi;
     }
@@ -97,7 +97,7 @@ public abstract class Libri {
         return kontrollHuazimi && dataHuazimit.equals(data);
 
     }
-
+*/
 
     public String getFusha() {
         return fusha;

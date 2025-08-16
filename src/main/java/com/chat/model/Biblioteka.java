@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class Biblioteka {
 
 
-    ArrayList<Libri> listLibrash = new ArrayList<>();
-    ArrayList<Libri> listLibrashCopy = new ArrayList<>();
-    ArrayList<Libri> listaMeLibratBler = new ArrayList<>();
+   // ArrayList<Libri> listLibrash = new ArrayList<>();
+    //ArrayList<Libri> listLibrashCopy = new ArrayList<>();
+    //ArrayList<Libri> listaMeLibratBler = new ArrayList<>();
 
-    public MenaxhimiHuazimeve menaxhimiHuazimeve;
-
+  //  public MenaxhimiHuazimeve menaxhimiHuazimeve;
+/*
     public Biblioteka(MenaxhimiHuazimeve menaxhimiHuazimeve) {
         this.menaxhimiHuazimeve = menaxhimiHuazimeve;
     }
@@ -52,14 +52,14 @@ public class Biblioteka {
     public ArrayList<Libri> merrLibratEBlere() {
         return new ArrayList<>(listaMeLibratBler);
     }
-
-
+*/
+/*
     public ArrayList<Libri> ktheLibratHuazuar(){
         return new ArrayList<>(menaxhimiHuazimeve.merrTeGjitheLibratEHuazuar());
     }
+*/
 
-
-
+/*
     public Libri gjejLiberSipasTitullit(String titulli) {
         for (Libri libri : listLibrash) {
             if (libri.getTitulli().equals(titulli)) {
@@ -154,16 +154,16 @@ public class Biblioteka {
 
 
     }
+*/
 
-
-
+/*
     public void raporti() {
 
         System.out.println("Jane huazuar: " + ktheLibratHuazuar().size() + " libra.");
         System.out.println("Jane blere: " + merrLibratEBlere().size() + " libra.");
         System.out.println("Librat ne gjendje: " + merrLibratNeGjendje().size());
     }
-
+*/
 
 
 

@@ -21,8 +21,8 @@ public class Puntori_respository {
 
             String sql = "UPDATE punonjesit SET emri = ? WHERE idPunonjesi = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1,punonjesi.getId());
-            stm.setString(2,punonjesi.getEmri());
+            stm.setString(1,punonjesi.getEmri());
+            stm.setString(2,punonjesi.getId());
             stm.executeUpdate();
 
         }

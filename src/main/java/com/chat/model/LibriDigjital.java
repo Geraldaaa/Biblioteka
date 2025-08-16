@@ -14,7 +14,6 @@ public class LibriDigjital extends Libri implements Huazimi{
     }
 
 
-
     @Override
     public void printoDetails(){
         System.out.println("Libri digjital me id: " + getId() + " dhe me titull " + getTitulli() + " ka si fushe formati "+ fusha +" dhe ka " + getNumriFaqeve() + " faqe.");

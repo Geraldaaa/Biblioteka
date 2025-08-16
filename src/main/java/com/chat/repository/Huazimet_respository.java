@@ -45,12 +45,11 @@ public class Huazimet_respository {
     }
 
 
-    public void deleteHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori) throws SQLException {
-        String sql = "DELETE FROM huazimi WHERE idLibrat = ? AND idPunonjesi = ?";
+    public void deleteHuazim(Connection conn,String idHuazimi) throws SQLException {
+        String sql = "DELETE FROM huazimi WHERE idHuazimi=?";
 
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, libri.getId());
-        statement.setString(2, puntori.getId());
+        statement.setString(1, idHuazimi);
         statement.executeUpdate();
 
     }
