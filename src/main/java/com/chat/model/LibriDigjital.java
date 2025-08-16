@@ -7,10 +7,14 @@ public class LibriDigjital extends Libri implements Huazimi{
 
 
 
-    public LibriDigjital(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, String fusha){
+    public LibriDigjital(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, String fusha, Integer sasia){
 
-        super(id, titulli, numriFaqeve,gjinia,fusha);
+        super(id, titulli, numriFaqeve,gjinia,fusha, sasia);
 
+    }
+
+    public LibriDigjital(String idLibri, String titulli) {
+        super(idLibri,titulli);
     }
 
 
@@ -27,4 +31,15 @@ public class LibriDigjital extends Libri implements Huazimi{
 
     }
 
+    @Override
+    public String toString() {
+        return "LibriDigjital{" +
+                "punonjesiBibliotekes=" + punonjesiBibliotekes +
+                ", dataHuazimit=" + dataHuazimit +
+                ", kontrollHuazimi=" + kontrollHuazimi +
+                ", kontrollBlerje=" + kontrollBlerje +
+                ", fusha='" + fusha + '\'' +
+                ", sasia=" + sasia +
+                '}';
+    }
 }

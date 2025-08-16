@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class LibriPrintuar extends Libri implements Huazimi {
 
 
-    public LibriPrintuar(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia) {
-        super(id, titulli, numriFaqeve, gjinia);
+    public LibriPrintuar(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, Integer sasia) {
+        super(id, titulli, numriFaqeve, gjinia,sasia );
     }
 
 

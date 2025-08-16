@@ -3,18 +3,18 @@ package com.chat.repository;
 import com.chat.model.Libri;
 import com.chat.model.PunonjesiBibliotekes;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Huazimet_respository {
 
+    Liber_respository lb_res = new Liber_respository();
 
     public void shtoHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori, Date dataHuazimit, Date dataKthimit ) throws SQLException {
 
         String sql = "INSERT INTO huazimi(idLibrat,huazuar,data_huazimit,idPunonjesi, dataKthimit) VALUES(?,?,?,?,?)";
-        try {
+
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, libri.getId());
             statement.setBoolean(2, true);
@@ -23,12 +23,31 @@ public class Huazimet_respository {
             statement.setDate(5,dataKthimit);
             statement.executeUpdate();
 
-        }catch (Exception e){
-            System.out.println(e.getStackTrace());
-            System.out.println("huazimi nuk u shtua");
-        }
+            libri.setSasia(lb_res.aksesimiSasise()-1);
+            lb_res.updateLiber(conn,libri);
+/*
+            String sqlUpdate = "UPDATE librat SET sasia = ? Where idLibrat = ?";
+            PreparedStatement st = conn.prepareStatement(sqlUpdate);
+            st.setInt(1,libri.getSasia()-1);
+            st.setString(2,libri.getId());
+
+            String sqlSasi = "Select sasia From Librat Where idLibrat = ?";
+            PreparedStatement stSasi = conn.prepareStatement(sqlSasi);
+            stSasi.setString(2,libri.getId());
+            //libri.setSasia(sqlSasi);
+
+
+*/
+    }
+
+
+    public void kthimHuazimi(Connection con, Libri libri) throws SQLException {
+
+        libri.setSasia(libri.getSasia()+1);
+        lb_res.updateLiber(con,libri);
 
     }
+
 
 
     public void updateHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori, Date dataHuazimit, Date dataKthimit) throws SQLException {
@@ -57,3 +76,5 @@ public class Huazimet_respository {
 
 
 }
+
+

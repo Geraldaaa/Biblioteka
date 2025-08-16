@@ -1,10 +1,15 @@
 package com.chat.repository;
 
+import com.chat.model.Libri;
+import com.chat.model.LibriDigjital;
 import com.chat.model.PunonjesiBibliotekes;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Puntori_respository {
 
@@ -35,6 +40,29 @@ public class Puntori_respository {
 
     }
 
+    public List<PunonjesiBibliotekes> lexoPuntoret(Connection connection) throws SQLException {
+
+        List<PunonjesiBibliotekes> puntoretDatabaze = new ArrayList<>();
+
+
+        String sql = "SELECT * FROM punonjesit";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            String idPunonjesi = resultSet.getString("idPunonjesi");
+            String emri = resultSet.getString("emri");
+            puntoretDatabaze.add(new PunonjesiBibliotekes(idPunonjesi,emri));
+        }
+
+        for(PunonjesiBibliotekes puntor:puntoretDatabaze){
+            System.out.println(puntor.getId()+" " + puntor.getEmri());
+        }
+
+        return puntoretDatabaze;
+
+    }
 
 
 

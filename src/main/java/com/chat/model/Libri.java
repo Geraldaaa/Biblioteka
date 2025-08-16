@@ -13,30 +13,44 @@ public abstract class Libri {
     protected Boolean kontrollHuazimi = false;
     protected Boolean kontrollBlerje = false;
     protected String fusha;
+    protected Integer sasia;
 
 
-    public Libri(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia){
+    public Libri(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, Integer sasia){
         this.id=id;
         this.titulli = titulli;
         this.numriFaqeve = numriFaqeve;
-      //  this.punonjesiBibliotekes = punonjesiBibliotekes;
         this.gjinia = gjinia;
+        this.sasia = sasia;
 
 
     }
 
-    public Libri(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, String fusha){
+    public Libri(String id, String titulli, int numriFaqeve, GjiniaLibrit gjinia, String fusha, Integer sasia){
         this.id=id;
         this.titulli = titulli;
         this.numriFaqeve = numriFaqeve;
         //  this.punonjesiBibliotekes = punonjesiBibliotekes;
         this.gjinia = gjinia;
         this.fusha = fusha;
+        this.sasia = sasia;
 
 
     }
 
+    public Libri(String idLibri, String titulli) {
+        this.id=idLibri;
+        this.titulli=titulli;
+    }
 
+
+    public Integer getSasia() {
+        return sasia;
+    }
+
+    public void setSasia(Integer sasia) {
+        this.sasia = sasia;
+    }
 
     public abstract void printoDetails();
 
@@ -105,6 +119,22 @@ public abstract class Libri {
 
     public void setFusha(String fusha) {
         this.fusha = fusha;
+    }
+
+    @Override
+    public String toString() {
+        return "Libri{" +
+                "id='" + id + '\'' +
+                ", titulli='" + titulli + '\'' +
+                ", numriFaqeve=" + numriFaqeve +
+                ", punonjesiBibliotekes=" + punonjesiBibliotekes +
+                ", gjinia=" + gjinia +
+                ", dataHuazimit=" + dataHuazimit +
+                ", kontrollHuazimi=" + kontrollHuazimi +
+                ", kontrollBlerje=" + kontrollBlerje +
+                ", fusha='" + fusha + '\'' +
+                ", sasia=" + sasia +
+                '}';
     }
 }
 
