@@ -1,7 +1,6 @@
 package com.chat.repository;
 
-import com.chat.model.Libri;
-import com.chat.model.PunonjesiBibliotekes;
+import com.chat.model.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,20 +10,20 @@ public class Huazimet_respository {
 
     Liber_respository lb_res = new Liber_respository();
 
-    public void shtoHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori, Date dataHuazimit, Date dataKthimit ) throws SQLException {
+    public void shtoHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori, Date dataHuazimit, Date dataKthimit) throws SQLException {
 
         String sql = "INSERT INTO huazimi(idLibrat,huazuar,data_huazimit,idPunonjesi, dataKthimit) VALUES(?,?,?,?,?)";
 
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, libri.getId());
-            statement.setBoolean(2, true);
-            statement.setDate(3, dataHuazimit);
-            statement.setString(4, puntori.getId());
-            statement.setDate(5,dataKthimit);
-            statement.executeUpdate();
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, libri.getId());
+        statement.setBoolean(2, true);
+        statement.setDate(3, dataHuazimit);
+        statement.setString(4, puntori.getId());
+        statement.setDate(5, dataKthimit);
+        statement.executeUpdate();
 
-            libri.setSasia(lb_res.aksesimiSasise()-1);
-            lb_res.updateLiber(conn,libri);
+        libri.setSasia(lb_res.aksesimiSasise() - 1);
+        lb_res.updateLiber(conn, libri);
 /*
             String sqlUpdate = "UPDATE librat SET sasia = ? Where idLibrat = ?";
             PreparedStatement st = conn.prepareStatement(sqlUpdate);
@@ -43,11 +42,10 @@ public class Huazimet_respository {
 
     public void kthimHuazimi(Connection con, Libri libri) throws SQLException {
 
-        libri.setSasia(libri.getSasia()+1);
-        lb_res.updateLiber(con,libri);
+        libri.setSasia(libri.getSasia() + 1);
+        lb_res.updateLiber(con, libri);
 
     }
-
 
 
     public void updateHuazim(Connection conn, Libri libri, PunonjesiBibliotekes puntori, Date dataHuazimit, Date dataKthimit) throws SQLException {
@@ -64,7 +62,7 @@ public class Huazimet_respository {
     }
 
 
-    public void deleteHuazim(Connection conn,String idHuazimi) throws SQLException {
+    public void deleteHuazim(Connection conn, String idHuazimi) throws SQLException {
         String sql = "DELETE FROM huazimi WHERE idHuazimi=?";
 
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -73,8 +71,60 @@ public class Huazimet_respository {
 
     }
 
+    public List<Huazim> lexoTeGjithaHuazimet(Connection connection) throws SQLException {
+        List<Huazim> huazimet = new ArrayList<>();
 
+        String sql = "SELECT * FROM huazimi";
+        Statement stmt = connection.createStatement();
+        ResultSet resultSet = stmt.executeQuery(sql);
+
+        while (resultSet.next()) {
+            Date dataHuazimitSql = resultSet.getDate("data_huazimit");
+            Date dataKthimitSql = resultSet.getDate("dataKthimit");
+
+            Huazim hua = new Huazim(
+                    resultSet.getString("idHuazimi"),
+                    resultSet.getString("idLibrat"),
+                    resultSet.getBoolean("huazuar"),
+                    resultSet.getDate("data_huazimit").toLocalDate(),
+                    resultSet.getString("idPunonjesi"),
+                    resultSet.getDate("dataKthimit").toLocalDate());
+            huazimet.add(hua);
+        }
+
+        for(Huazim hr : huazimet){
+            System.out.println(hr.toString());
+        }
+
+        return huazimet;
+    }
+
+
+    public List<Libri> huazimetPerDate(Connection connection, Date data) throws SQLException {
+        List<Libri>huazimetSipasDates = new ArrayList<>();
+
+        String sql = "SELECT l.idLibrat, l.titulli FROM librat l JOIN huazimi h ON l.idLibrat = h.idLibrat WHERE h.data_huazimit = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setDate(1, data);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+            String id = resultSet.getString("idLibrat");
+            String titulli = resultSet.getString("titulli");
+
+            Libri libri = new LibriDigjital(id, titulli);
+            huazimetSipasDates.add(libri);
+        }
+
+        for(Libri hd : huazimetSipasDates){
+            System.out.println(hd.toString());
+        }
+
+
+        return huazimetSipasDates;
+    }
 
 }
+
 
 

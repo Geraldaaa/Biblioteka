@@ -28,27 +28,33 @@ public class Main {
 
 
 
-          //  lr.shtoLiber(conn, l1); //printuar
+            //  lr.shtoLiber(conn, l1); //printuar
             // lr.shtoLiber(conn,l2); //digjital
             // l1.setTitulli("l1Updated");
             // l1.setNumriFaqeve(500);
-             //lr.updateLiber(conn,l1);
+            //lr.updateLiber(conn,l1);
             //  lr.fshiLiber(conn,"7");
             //  lr.readLiber(conn);
 
 
-            //  pnt.shtoPunonjes(conn,p1);
-            // pnt.updatePunonjesi(conn,p1);
-            //pnt.fshiPunonjesi(conn,"7");
-           //pnt.lexoPuntoret(conn);
+             //  pnt.shtoPunonjes(conn,p1);
+             // pnt.updatePunonjesi(conn,p1);
+             //pnt.fshiPunonjesi(conn,"7");
+             //pnt.lexoPuntoret(conn);
 
 
-           // hr.shtoHuazim(conn,l1,p1, Date.valueOf("2025-05-01"), Date.valueOf("2025-05-15"));
-           // hr.kthimHuazimi(conn,l1);
+            // hr.shtoHuazim(conn,l1,p1, Date.valueOf("2025-05-01"), Date.valueOf("2025-05-15"));
+            // hr.kthimHuazimi(conn,l1);
             // hr.kthimHuazimi(conn,l1);
             // hr.updateHuazim(conn, l1, p1, Date.valueOf("2025-08-01"), Date.valueOf("2025-08-16"));
-           // hr.deleteHuazim(conn,"5");
+            // hr.deleteHuazim(conn,"5");
 
+              hr.huazimetPerDate(conn, Date.valueOf("2025-08-01"));
+            //    hr.lexoTeGjithaHuazimet(conn);
+
+
+
+     //   Date data = Date.valueOf("2025-08-01");
 
 
     }

@@ -17,14 +17,14 @@ public class testMYSQL{
 
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery( "SELECT * FROM punonjesit");
+            ResultSet resultSet = statement.executeQuery( "SELECT * FROM librat");
 
 
             while(resultSet.next()){
 
-                System.out.println(resultSet.getString( "idPunonjesi"));
+                System.out.println(resultSet.getString( "idLibrat"));
 
-                System.out.println(resultSet.getString("emri"));
+                System.out.println(resultSet.getString("titulli"));
 
             }
 

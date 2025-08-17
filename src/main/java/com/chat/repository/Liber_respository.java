@@ -76,12 +76,6 @@ public class Liber_respository {
     }
 
 
-
-//    public void printList(){
-//        for(Libri lb:libratNeDatabaze){
-//            System.out.println(lb);
-//        }
-//    }
 }
 
 
